@@ -4,7 +4,11 @@
             <header class="header-bar bg-gray-200 text-black rounded-lg p-4 mb-4 shadow">
                 <div class="user-info text-center">
                     <h3 class="text-black">Hello User</h3>
-                    <p>You have <span class="incomplete-tasks text-red-600">5</span> incomplete tasks</p>
+                    <p>You have <span class="incomplete-tasks text-red-600">{{total_incompleted_task}}</span> incomplete tasks
+                    </p> You have
+                    <h1>Incompleted Task: <span class="incomplete-tasks texr-red-600 text-xl font-bold">{{total_completedtask }}</span></h1>
+                    <h1>Completed Task: <span class="complete-tasks texr-green-600 text-xl font-bold">{{total_incompletedtask }}</span></h1>
+                    
                 </div>
                 <div class="action-links">
                 </div>
@@ -12,9 +16,6 @@
             
             
             
-            
-            
-           
             <div class="search-add-wrapper flex justify-between items-center mb-4">
                 <form class="w-3/4" method="GET">
                     <input class="w-full p-2 border rounded" type="text" name='search-area' placeholder="Search tasks">
@@ -27,7 +28,7 @@
                 <div class="task-wrapper completed bg-gray-200 border rounded p-4 mb-4 relative hover:shadow-md transition duration-300">
                     <div class="task-title flex justify-between items-center">
                         <div class="task-complete-icon"></div>
-                        <i><s><a href="#" class="text-green-500">{{ data.title }}</a></s></i>
+                        <i><s><a href="{% url 'detail' data.id %}" class="text-green-500">{{ data.title }}</a></s></i>
                     </div>
                     <a class="delete-link text-red-500" href="#">×</a>
                 </div>
@@ -37,7 +38,7 @@
                 <div class="task-wrapper bg-white border rounded p-4 mb-4 relative hover:shadow-md transition duration-300">
                     <div class="task-title flex justify-between items-center">
                         <div class="task-incomplete-icon"></div>
-                        <a href="#" class="text-red-500">{{ data.title}}</a>
+                        <a href="{% url 'detail' data.id %}" class="text-red-500">{{ data.title}}</a>
                     </div>
                     <a class="delete-link text-red-500" href="#">×</a>
                 </div>
