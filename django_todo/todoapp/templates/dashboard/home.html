@@ -5,9 +5,8 @@
                 <div class="user-info text-center">
                     <h3 class="text-black">Hello User</h3>
                     <p>You have <span class="incomplete-tasks text-red-600">{{total_incompleted_task}}</span> incomplete tasks
-                    </p> You have
-                    <h1>Incompleted Task: <span class="incomplete-tasks texr-red-600 text-xl font-bold">{{total_completedtask }}</span></h1>
-                    <h1>Completed Task: <span class="complete-tasks texr-green-600 text-xl font-bold">{{total_incompletedtask }}</span></h1>
+                    </p>
+                   
                     
                 </div>
                 <div class="action-links">
@@ -21,7 +20,7 @@
                     <input class="w-full p-2 border rounded" type="text" name='search-area' placeholder="Search tasks">
                     <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer">Search</button>
                 </form>
-                <a id="add-link" href="#" class="text-3xl text-blue-500">+</a>
+                <a id="add-link" href="{% url 'addtask' %}" class="text-3xl text-blue-500">+</a>
             </div>
             {% for data in completedtask  %}
             <div class="task-items-wrapper">

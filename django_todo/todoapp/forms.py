@@ -5,6 +5,7 @@ from django.forms import ModelForm
 from .models import *
 from django.contrib.auth.models import User
 
+
 class LoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput())
     password = forms.CharField(widget=forms.PasswordInput())
@@ -16,6 +17,12 @@ class UserRegistrationForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ["name", "address", "phone", "email", "username", "password"]
+
+class Taskform(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ["title", "description", "task_date"]
+
 
 
 

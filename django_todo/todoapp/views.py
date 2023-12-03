@@ -94,3 +94,27 @@ def TaskDetail(request, pk):
     }
     return render(request, template_name, context)
 
+def Addtask(request):
+    template_name = 'dashboard/addtask.html'
+    userprofile = UserProfile.objects.get(user = request.user)
+    form = Taskform
+
+    if request.method == "POST":
+        form = Taskform(request.POST )
+        form.instance.created_by = userprofile
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    context= {
+        'form':form,
+        }
+    return render (request, template_name, context)
+
+
+def EditTask(request, pk):
+    templete_name = 'dashboard/edit.html'
+
+    return render (request, templete_name)
+
+
