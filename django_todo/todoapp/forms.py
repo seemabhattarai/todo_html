@@ -23,6 +23,15 @@ class Taskform(forms.ModelForm):
         model = Task
         fields = ["title", "description", "task_date"]
 
+class EditTaskform(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ["title", "description", "task_date", "completed"]
+     
+
+
+
+
 
 
 

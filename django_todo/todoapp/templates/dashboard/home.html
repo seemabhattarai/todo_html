@@ -29,7 +29,7 @@
                         <div class="task-complete-icon"></div>
                         <i><s><a href="{% url 'detail' data.id %}" class="text-green-500">{{ data.title }}</a></s></i>
                     </div>
-                    <a class="delete-link text-red-500" href="#">×</a>
+                    <a class="delete-link text-red-500" href="{% url 'deletetask' data.id %}">×</a>
                 </div>
                 {% endfor %}
 
@@ -39,7 +39,7 @@
                         <div class="task-incomplete-icon"></div>
                         <a href="{% url 'detail' data.id %}" class="text-red-500">{{ data.title}}</a>
                     </div>
-                    <a class="delete-link text-red-500" href="#">×</a>
+                    <a class="delete-link text-red-500" href="{% url 'deletetask' data.id %}">×</a>
                 </div>
                 {% endfor %}
                 <h3 class="text-gray-500 text-center mt-4">No items in the list</h3>

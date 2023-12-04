@@ -40,7 +40,11 @@
                     Status: <span class="font-bold">Incompleted</span>
                 </div>
                 {% endif %}
+
+
             </div>
+
+            <button> <a href= "{% url 'edittask' task.id %}"> Edit</a> </button>
         </div>
     </div>
 {% endblock content %}
