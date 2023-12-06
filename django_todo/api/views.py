@@ -19,6 +19,12 @@ class HomeView(APIView):
             'incompleted task': inserializer
         }
         return Response(data, status=status.HTTP_200_OK)
+    
+    def post (self, request):
+        serializer= TaskSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
 
 
 # Create your views here.
