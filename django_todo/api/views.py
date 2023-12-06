@@ -30,6 +30,25 @@ class HomeView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
+    
+class UpdateTask(APIView):
+    def get(self,request, pk):
+        task= Task.objects.get(id=pk)
+        serializer = TaskSerializer(task)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    def delete(self, request, pk):
+        task=Task.objects.get(id=pk)
+        task.delete()
+        return Response({"message:" "Task delete succeddfully"}, status=status.HTTP_202_ACCEPTED)
+    
+    def patch(self,request, pk):
+        task=Task.objects.get(id=pk)
+        serializer= TaskSerializer(task, data= request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 # Create your views here.
